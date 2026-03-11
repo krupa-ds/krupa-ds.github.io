@@ -12,13 +12,13 @@
         :root {
             --bg: #0c0c0e;
             --surface: #141418;
-            --surface-hover: #1c1c22;
+            --surface-hover: #3e3e3e;
             --border: #2a2a33;
             --text: #e8e6e1;
             --text-muted: #8a8892;
             --accent: #c9f06b;
-            --accent-dim: #c9f06b22;
-            --serif: 'DM Serif Display', Georgia, serif;
+            --accent-dim: #0c0c0e;
+            /* --serif: 'DM Serif Display', Georgia, serif; */
             --sans: 'Instrument Sans', system-ui, sans-serif;
         }
 
@@ -99,7 +99,7 @@
         .hero h1 {
             font-family: var(--serif);
             font-size: clamp(3rem, 7vw, 5.5rem);
-            line-height: 1.05;
+            line-height: 1;
             letter-spacing: -0.03em;
             margin-bottom: 1.5rem;
             opacity: 0;
@@ -428,6 +428,71 @@
             transform: translateY(0);
         }
 
+        /* ── SKILLS ── */
+        .skills-grid-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.75rem;
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .skill-category-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--accent-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-category h3 {
+            font-family: var(--sans);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .skill-category li {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            padding-left: 1.2rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .skill-category li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .skill-category:hover li { color: var(--text); }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
             nav { padding: 1rem 1.25rem; }
@@ -435,6 +500,7 @@
             .nav-links a { font-size: 0.75rem; }
             .about-grid { grid-template-columns: 1fr; gap: 2rem; }
             .projects-grid { grid-template-columns: 1fr; }
+            .skills-grid-section { grid-template-columns: 1fr; }
             .hero-cta { flex-direction: column; }
             .btn { text-align: center; }
             section { padding: 4rem 1.25rem; }
@@ -450,6 +516,7 @@
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -458,12 +525,12 @@
     <section class="hero">
         <div class="hero-tag">Data Anlysis &amp; Visualisation</div>
         <h1>
-            Turning data into<br>
-            <span class="highlight">insight</span>.
+            Hi, i'm Matthew Krupa.<br>
+            <span class="highlight">Data Analyst.</span>
         </h1>
         <p class="hero-description">
             Data professional with 5+ years experience in IT service operations. 
-            I love digging into messy datasets and pulling out the 
+            I love digging into messy datasets and finding the 
             story they're trying to tell. Skilled in Python, statistical analysis, 
             and building visualisations that make complex data click.
         </p>
@@ -482,21 +549,24 @@
         <div class="about-grid">
             <div class="about-text fade-in">
                 <p>
-                    I'm a computer science student who loves turning ideas into
-                    real, working software. My main interests are in web
-                    development and data science — I enjoy the full journey from
-                    sketching out a concept to shipping something people can use.
+                    I enjoy the
+                    process of cleaning, exploring, and modelling data to
+                    uncover patterns that drive real decisions. Whether it's
+                    building predictive models with scikit-learn or crafting
+                    clear dashboards, I care about making data accessible.
                 </p>
                 <p>
-                    When I'm not coding, you'll find me reading about new
-                    technologies, contributing to open source, or working on
-                    side projects that push me to learn something new.
+                    I'm drawn to problems where the answer isn't clear. 
+                    I'm always sharpening my skills in
+                    statistics, machine learning, and visual storytelling with
+                    data.
                 </p>
                 <div class="skills-list">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">Power BI</span>
                     <span class="skill-tag">SQL</span>
                     <span class="skill-tag">scikit-learn</span>
+                    <span class="skill-tag">BERTopic</span>
                     <span class="skill-tag">Tableau</span>
                     <span class="skill-tag">Project Co-ordination</span>
                 </div>
@@ -522,6 +592,49 @@
         </div>
     </section>
 
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="fade-in">
+            <div class="section-label">Toolkit</div>
+            <div class="section-title">Skills &amp; Technologies</div>
+        </div>
+        <div class="skills-grid-section">
+            <div class="skill-category fade-in">
+                <h3>Programming &amp; Tools</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>SQL</li>
+                    <li>Jupyter Notebook</li>
+                    <li>Git &amp; GitHub</li>
+                    <li>Excel</li>
+                    <li>VS Code</li>
+                </ul>
+            </div>
+            <div class="skill-category fade-in">
+                <h3>Machine Learning</h3>
+                <ul>
+                    <li>Supervised Learning (Regression, Classification)</li>
+                    <li>Unsupervised Learning (Clustering, PCA)</li>
+                    <li>Feature Engineering</li>
+                    <li>Model Evaluation &amp; Selection</li>
+                    <li>scikit-learn</li>
+                    <li>BERTopic</li>
+                </ul>
+            </div>
+            <div class="skill-category fade-in">
+                <h3>Data Analysis &amp; Viz</h3>
+                <ul>
+                    <li>Pandas &amp; NumPy</li>
+                    <li>Matplotlib &amp; Seaborn</li>
+                    <li>Power BI</li>
+                    <li>Tableau</li>
+                    <li>Statistical Testing</li>
+                    <li>Data Cleaning &amp; Wrangling</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <!-- PROJECTS -->
     <section id="projects">
         <div class="fade-in">
@@ -533,20 +646,18 @@
             <div class="project-card fade-in">
                 <div class="project-image">🎵</div>
                 <div class="project-body">
-                    <h3>Music Recommender</h3>
+                    <h3>Movie Recommender</h3>
                     <p>
-                        A content-based recommendation engine built with
-                        scikit-learn that suggests songs based on audio features
-                        and listening history.
+                        A hybrid recommendation system that combines collaborative filtering, content-based filtering and cluster-based diversity to suggest films tailored to your taste.
                     </p>
                     <div class="project-tags">
                         <span>Python</span>
                         <span>scikit-learn</span>
                         <span>Pandas</span>
                     </div>
-                    <a href="#" class="project-link">
+                    <a href="https://github.com/krupa-ds/Movie-Vibe-Recommender" class="project-link">
                         View on GitHub
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/>https://github.com/krupa-ds/Movie-Vibe-Recommender</svg>
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                 </div>
             </div>
@@ -555,17 +666,16 @@
             <div class="project-card fade-in">
                 <div class="project-image">📊</div>
                 <div class="project-body">
-                    <h3>Dashboard App</h3>
+                    <h3>Data Analysis</h3>
                     <p>
-                        A responsive analytics dashboard with interactive
-                        charts, real-time data, and a clean, minimal interface.
+                        Performed exploratory data analysis on datasets from the Workplace Gender Equality Agency (WGEA) and the Australian Bureau of Statistics (ABS) to identify structural factors contributing to organisational inaction on gender equality.
                     </p>
                     <div class="project-tags">
-                        <span>React</span>
-                        <span>Chart.js</span>
-                        <span>REST API</span>
+                        <span>Python</span>
+                        <span>Pandas</span>
+                        <span>Visualisation</span>
                     </div>
-                    <a href="#" class="project-link">
+                    <a href="https://github.com/krupa-ds/Workplace-Gender-Equality-Australia" class="project-link">
                         View on GitHub
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
@@ -594,6 +704,8 @@
             </div>
         </div>
     </section>
+
+    
 
     <!-- CONTACT -->
     <section id="contact" class="contact-section">
